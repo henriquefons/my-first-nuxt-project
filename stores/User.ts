@@ -1,5 +1,5 @@
 import { defineStore, acceptHMRUpdate } from "pinia";
-const router = useRouter()
+
 
 export const useUser = defineStore("User", {
   state: () => {
@@ -11,7 +11,7 @@ export const useUser = defineStore("User", {
   actions: {
     login() {
       this.isLoggedIn = true;
-      router.push("/");
+      useRouter().push({ path: "/" });
     },
   },
 });

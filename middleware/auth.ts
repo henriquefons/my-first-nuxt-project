@@ -1,6 +1,8 @@
+import { useUser } from "~/stores/User";
+
 export default defineNuxtRouteMiddleware((to, from) => {
-  const isLoggedIn = useIsLoggedIn();
+  const user = useUser();
 
   // if (!userIsAuthenticate) return abortNavigation("No valid authentication");
-  if (!isLoggedIn) return navigateTo({ name: "login" });
+  if (!user.isLoggedIn) return navigateTo({ name: "login" });
 });

@@ -1,36 +1,30 @@
-<script lang="ts" setup>
+<script setup>
 const config = useRuntimeConfig();
 
-const query = ref("");
+const query = ref('Batman');
 const movies = ref([]);
 
 async function onSearch() {
   const apiKey = config.public.apiKey;
   const baseURL = config.public.apiUrl;
-  const data: any = await $fetch(baseURL, {
+  const data = await $fetch(baseURL, {
     params: {
       apiKey,
       s: query.value,
     },
   });
 
-  console.log(data.Search)
-  movies.value = data.Search
+  movies.value = data.Search;
 }
+
+onSearch()
 </script>
 
 <template>
-  <form @submit.prevent="onSearch">
-    <input type="text" v-model="query">
-    <button> Search </button>
-  </form>
+  <MovieSearch v-model="query" @click="onSearch" />
 
   <ul>
-    <li v-for="movie in movies" :key="movie.imdbID">
-      <NuxtLink :to="{ name: 'movies-id', params: { id: movie.imdbID } }"> 
-        {{movie.Title}} 
-      </NuxtLink>
-    </li>
+    <MovieCard v-for="movie in movies" :key="movie.imdbID" :movie="movie" />
   </ul>
 </template>
 

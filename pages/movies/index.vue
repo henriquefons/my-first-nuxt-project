@@ -1,7 +1,7 @@
 <script setup>
 const config = useRuntimeConfig();
 
-const query = ref('Batman');
+const query = ref("Batman");
 const movies = ref([]);
 
 async function onSearch() {
@@ -17,7 +17,7 @@ async function onSearch() {
   movies.value = data.Search;
 }
 
-onSearch()
+onSearch();
 </script>
 
 <template>

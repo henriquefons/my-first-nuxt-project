@@ -16,7 +16,7 @@ const { data: movie, error } = await useFetch(baseURL, {
   },
 });
 if (error.value) {
-  console.log(error.value);
+  console.warn(error.value);
 }
 if (movie.value?.Error?.includes("Incorrect IMDb ID")) {
   showError({ statusMessage: "No movie found", statusCode: 404 });

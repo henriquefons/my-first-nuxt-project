@@ -1,5 +1,20 @@
+<script setup>
+const router = useRouter()
+
+definePageMeta({
+  layout: "plain",
+});
+
+const isLoggedIn = useIsLoggedIn();
+
+function login() {
+  isLoggedIn.value = true;
+  router.push('/')
+}
+</script>
+
 <template>
-  <form>
+  <form @submit.prevent="login">
     <h1>Login area</h1>
     <label for="username">
       Username
@@ -9,11 +24,6 @@
       Password
       <input type="password" id="password" />
     </label>
+    <button>Log In</button>
   </form>
 </template>
-
-<script setup>
-definePageMeta({
-  layout: "plain",
-});
-</script>

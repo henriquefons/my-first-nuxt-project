@@ -1,5 +1,6 @@
 export default defineNuxtRouteMiddleware((to, from) => {
-  const userIsAuthenticate = false;
+  const isLoggedIn = useIsLoggedIn();
+
   // if (!userIsAuthenticate) return abortNavigation("No valid authentication");
-  if (!userIsAuthenticate) return navigateTo({ name: "login" });
+  if (!isLoggedIn) return navigateTo({ name: "login" });
 });

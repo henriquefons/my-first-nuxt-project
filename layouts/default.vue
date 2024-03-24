@@ -5,6 +5,7 @@
     <nav>
       <NuxtLink to="/">Home </NuxtLink>
       <NuxtLink to="/movies"> Movie </NuxtLink>
+      <NuxtLink to="/login"> Login </NuxtLink>
       <NuxtLink to="/teams/HenriqueTeam/users/31"> User 31 </NuxtLink>
       <NuxtLink to="https://www.google.com" target="_blank"> Google </NuxtLink>
     </nav>
